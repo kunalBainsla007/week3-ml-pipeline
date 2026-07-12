@@ -18,7 +18,9 @@ def plot_confusion_matrix(y_test, y_pred, model_name):
         plt.title(f'{model_name} Confusion Matrix')
         plt.ylabel('Actual')
         plt.xlabel('Predicted')
-        plt.savefig(f'reports/{model_name}_confusion_matrix.png')
+        output_dir = Path(__file__).resolve().parents[1] / "reports"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        plt.savefig(output_dir / f"{model_name}_confusion_matrix.png")
         plt.show()
         print(f"{model_name} confusion matrix saved!")
     except Exception as e:
