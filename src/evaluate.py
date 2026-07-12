@@ -35,7 +35,9 @@ def plot_model_comparison(lr_acc, dt_acc, nn_acc):
         plt.ylim(0, 1)
         for i, acc in enumerate(accuracies):
             plt.text(i, acc + 0.01, f'{acc:.2f}', ha='center')
-        plt.savefig('reports/model_comparison.png')
+        output_dir = Path(__file__).resolve().parents[1] / "reports"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        plt.savefig(output_dir / "model_comparison.png")
         plt.show()
         print("Model comparison chart saved!")
     except Exception as e:
