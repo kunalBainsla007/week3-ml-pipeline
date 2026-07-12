@@ -84,8 +84,14 @@ if __name__ == "__main__":
     base_path = Path(__file__).resolve().parents[1]
     data_path = base_path / "data" / "cleaned_loan_data.csv"
     
-    df = load_cleaned_data(data_path)
-    X_train, X_test, y_train, y_test = prepare_data(df)
+df = load_cleaned_data(data_path)
+if df is None:
+    raise SystemExit(1)
+
+prepared = prepare_data(df)
+if prepared is None:
+    raise SystemExit(1)
+X_train, X_test, y_train, y_test = prepared
     
     lr_model = train_logistic_regression(X_train, y_train)
     dt_model = train_decision_tree(X_train, y_train)
