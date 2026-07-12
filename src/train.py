@@ -70,6 +70,8 @@ def train_neural_network(X_train, y_train, X_test, y_test):
         return None, None
 
 def evaluate_model(model, X_test, y_test, model_name):
+    if model is None:
+        raise ValueError(f"{model_name} model is None (training failed)")
     try:
         y_pred = model.predict(X_test)
         accuracy = accuracy_score(y_test, y_pred)
