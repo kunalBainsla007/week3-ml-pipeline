@@ -1,4 +1,4 @@
-# Week 3 - ML Pipeline: Loan Approval Prediction
+#  ML Pipeline: Loan Approval Prediction
 
 ## Problem Statement
 Predict whether a loan application should be approved or rejected based on applicant details.
